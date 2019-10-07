@@ -1,5 +1,6 @@
 type Day {
     index: Int!
+    name: String!
     lessons: [Lesson]
 }
 
