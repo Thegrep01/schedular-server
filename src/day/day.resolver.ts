@@ -1,4 +1,4 @@
-import { Query, Resolver, ResolveProperty, Parent } from '@nestjs/graphql';
+import { Parent, Query, ResolveProperty, Resolver } from '@nestjs/graphql';
 import { DaysService } from './service/day.service';
 import { DayDto } from './dto/day.dto';
 import { LessonDto } from './dto/lesson.dto';

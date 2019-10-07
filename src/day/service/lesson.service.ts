@@ -3,7 +3,14 @@ import { LessonDto } from '../dto/lesson.dto';
 
 export class LessonService {
     private mock: LessonDto[] = [
-        { name: 'Lorem Ipsum', dayIndex: 1, teacher: 'Lorem', type: LessonType.lecture, classRoom: '6/52', index: 1 },
+        {
+            name: 'Lorem Ipsum',
+            dayIndex: 1,
+            teacher: 'Lorem',
+            type: LessonType.lecture,
+            classRoom: '6/52',
+            index: 1,
+        },
         {
             name: 'Lorem Ipsum 2',
             dayIndex: 2,
