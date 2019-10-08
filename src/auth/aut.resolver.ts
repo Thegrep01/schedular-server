@@ -2,6 +2,8 @@ import { AuthService } from './service/aut.service';
 import { User, UserInput } from './dto/user.dto';
 import * as mongoose from 'mongoose';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { UseGuards } from '@nestjs/common';
+import { GqlAuthGuard } from 'src/common/gqlAuth';
 
 @Resolver(_of => User)
 export class RecipeResolver {

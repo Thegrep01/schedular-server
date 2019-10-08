@@ -10,10 +10,10 @@ export const userSchema: mongoose.Schema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    // accessToken: {
-    //     type: String,
-    //     required: true,
-    // },
+    accessToken: {
+        type: String,
+        required: true,
+    },
     // schedularID: {
     //     type: String,
     //     required: false,
@@ -24,7 +24,7 @@ export const userSchema: mongoose.Schema = new mongoose.Schema({
 interface User {
     readonly login: string;
     password?: string;
-    // readonly accessToken: string;
+    readonly accessToken: string;
     // schedularID?: string;
 }
 

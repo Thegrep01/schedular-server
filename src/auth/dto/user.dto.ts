@@ -8,8 +8,8 @@ export class User {
     public login!: string;
     @Field({ nullable: true })
     public password?: string;
-    // @Field()
-    // public accessToken!: string;
+    @Field()
+    public accessToken!: string;
     // @Field({ nullable: true })
     // public schedularID?: string;
 }
