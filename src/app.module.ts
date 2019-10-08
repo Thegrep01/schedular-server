@@ -1,15 +1,17 @@
 import { Module } from '@nestjs/common';
 
 import { GraphQLModule } from '@nestjs/graphql';
-import { DayModule } from './day/day.module';
+import { ConfigModule } from './config/config.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
     imports: [
+        ConfigModule,
+        AuthModule,
         GraphQLModule.forRoot({
-            typePaths: ['./**/*.graphql'],
+            autoSchemaFile: 'schema.gql',
             context: ({ req }) => ({ headers: req.headers }),
         }),
-        DayModule,
     ],
 })
 export class AppModule {}
