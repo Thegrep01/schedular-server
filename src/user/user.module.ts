@@ -5,12 +5,12 @@ import { ConfigService } from 'src/config/config.service';
 import { JwtStrategy } from './passport/jwt.strategy';
 import { userProviders } from './user.providers';
 import { UserService } from './service/user.service';
-import { UserResolver } from './user.resolver';
+import { resolvers } from './resolvers';
 
 const config: ConfigService = new ConfigService(`environments/${process.env.NODE_ENV || 'development'}.env`);
 const secret: string = config.get('secret');
 @Module({
     imports: [DatabaseModule, ConfigModule],
-    providers: [...userProviders, UserResolver, UserService, JwtStrategy],
+    providers: [...userProviders, ...resolvers, UserService, JwtStrategy],
 })
 export class UserModule {}

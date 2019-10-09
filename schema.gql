@@ -3,19 +3,36 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type Lesson {
+  name: String
+  teacher: String
+  type: Int
+  classRoom: String
+  index: Int
+  dayIndex: Int
+}
+
 type Mutation {
   signUp(user: user!): User!
   login(user: user!): User!
 }
 
 type Query {
-  getUser: User!
+  user: User!
+}
+
+type Schedular {
+  mon: [Lesson!]
+  tue: [Lesson!]
+  wen: [Lesson!]
+  thu: [Lesson!]
+  fri: [Lesson!]
+  sat: [Lesson!]
 }
 
 input user {
   login: String!
   password: String!
-  role: String
 }
 
 type User {
@@ -23,5 +40,5 @@ type User {
   login: String!
   password: String
   accessToken: String!
-  role: String!
+  schedular: Schedular!
 }
