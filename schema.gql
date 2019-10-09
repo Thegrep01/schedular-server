@@ -5,15 +5,17 @@
 
 type Mutation {
   signUp(user: user!): User!
+  login(user: user!): User!
 }
 
 type Query {
-  user(userId: String!): User!
+  getUser: User!
 }
 
 input user {
   login: String!
   password: String!
+  role: String
 }
 
 type User {
@@ -21,4 +23,5 @@ type User {
   login: String!
   password: String
   accessToken: String!
+  role: String!
 }

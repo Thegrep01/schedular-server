@@ -10,14 +10,6 @@ export const userSchema: mongoose.Schema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    accessToken: {
-        type: String,
-        required: true,
-    },
-    // schedularID: {
-    //     type: String,
-    //     required: false,
-    // },
 });
 
 // tslint:disable-next-line:interface-name
@@ -25,7 +17,7 @@ interface User {
     readonly login: string;
     password?: string;
     readonly accessToken: string;
-    // schedularID?: string;
+    _id: mongoose.Types.ObjectId;
 }
 
 export interface IUser extends mongoose.Document, User {

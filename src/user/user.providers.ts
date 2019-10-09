@@ -1,7 +1,7 @@
 import { Connection, Document, Model } from 'mongoose';
 import { userSchema } from './schemas/user.schema';
 
-export const authProviders: IAuthProviders[] = [
+export const userProviders: IUserProviders[] = [
     {
         provide: 'UserModelToken',
         useFactory: (connection: Connection): Model<Document> => connection.model('UserModel', userSchema),
@@ -9,7 +9,7 @@ export const authProviders: IAuthProviders[] = [
     },
 ];
 
-interface IAuthProviders {
+interface IUserProviders {
     provide: string;
     useFactory: (connection: Connection) => Model<Document>;
     inject: string[];

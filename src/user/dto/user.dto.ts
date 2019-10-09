@@ -10,10 +10,7 @@ export class User {
     public password?: string;
     @Field()
     public accessToken!: string;
-    // @Field({ nullable: true })
-    // public schedularID?: string;
 }
-
 @InputType('user')
 export class UserInput {
     @Field()
