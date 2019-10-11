@@ -22,7 +22,6 @@ export class JwtStrategy extends Strategy {
         passport.use(this);
     }
     public async verify(_req: Request, payload: string, done: VerifiedCallback): Promise<void> {
-        console.log(payload);
         const isValid: IUser = await this._userService.getUser({ login: payload }, { _id: 1 });
         if (!isValid) {
             return done(null, false);

@@ -3,18 +3,46 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type AuthMutations {
+  login(user: LoginInput!): User
+  signUp(user: LoginInput!): User
+}
+
 type Lesson {
-  name: String
-  teacher: String
-  type: Int
-  classRoom: String
-  index: Int
-  dayIndex: Int
+  _id: ID!
+  name: String!
+  teacher: String!
+  type: LESSON_TYPE!
+  classRoom: String!
+  index: Int!
+}
+
+enum LESSON_TYPE {
+  Practice
+  Lecture
+}
+
+input LessonInput {
+  name: String!
+  teacher: String!
+  type: LESSON_TYPE!
+  classRoom: String!
+  index: Int!
+  schedularId: String
+}
+
+type LessonMutations {
+  create(lesson: LessonInput!): Lesson
+}
+
+input LoginInput {
+  login: String!
+  password: String!
 }
 
 type Mutation {
-  signUp(user: user!): User!
-  login(user: user!): User!
+  lessons: LessonMutations
+  auth: AuthMutations
 }
 
 type Query {
@@ -22,23 +50,19 @@ type Query {
 }
 
 type Schedular {
-  mon: [Lesson!]
-  tue: [Lesson!]
-  wen: [Lesson!]
-  thu: [Lesson!]
-  fri: [Lesson!]
-  sat: [Lesson!]
-}
-
-input user {
-  login: String!
-  password: String!
+  _id: ID!
+  users: [User!]!
+  mon: [Lesson!]!
+  tue: [Lesson!]!
+  wen: [Lesson!]!
+  thu: [Lesson!]!
+  fri: [Lesson!]!
+  sat: [Lesson!]!
 }
 
 type User {
   _id: ID!
   login: String!
-  password: String
-  accessToken: String!
-  schedular: Schedular!
+  accessToken: String
+  schedular: Schedular
 }

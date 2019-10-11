@@ -1,5 +1,5 @@
 import { Field, ID, InputType, ObjectType } from 'type-graphql';
-import { Schedular } from './schedular.dto';
+import { Schedular } from 'src/schedular/dto/schedular.dto';
 
 @ObjectType()
 export class User {
@@ -8,14 +8,21 @@ export class User {
     @Field()
     public login!: string;
     @Field({ nullable: true })
-    public password?: string;
-    @Field()
-    public accessToken!: string;
-    @Field(_type => Schedular)
-    public schedular: Schedular;
+    public accessToken?: string;
+    @Field(_type => Schedular, { nullable: true })
+    public schedular?: Schedular;
 }
-@InputType('user')
-export class UserInput {
+
+@ObjectType()
+export class AuthMutations {
+    @Field(_type => User, { nullable: true })
+    public login: User;
+    @Field(_type => User, { nullable: true })
+    public signUp: User;
+}
+
+@InputType()
+export class LoginInput {
     @Field()
     public login: string;
     @Field()
