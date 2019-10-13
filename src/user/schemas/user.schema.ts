@@ -9,7 +9,7 @@ export const userSchema: mongoose.Schema = new mongoose.Schema({
     password: {
         type: String,
         required: false,
-    },
+    }
 });
 
 // tslint:disable-next-line:interface-name

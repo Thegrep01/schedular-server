@@ -6,7 +6,7 @@ import { User } from 'src/user/dto/user.dto';
 export class Schedular {
     @Field(_type => ID)
     public _id: string;
-    @Field(_type => User)
+    @Field(_type => [User])
     public users: [User];
     @Field(_type => [Lesson])
     public mon?: Lesson[];
@@ -20,4 +20,12 @@ export class Schedular {
     public fri?: Lesson[];
     @Field(_type => [Lesson])
     public sat?: Lesson[];
+}
+
+@ObjectType()
+export class SchedularMutations {
+    @Field(_type => Schedular)
+    public createEmptySchedular: Schedular;
+    // @Field(_type => Schedular, { nullable: true })
+    // public createSchedular: Schedular;
 }

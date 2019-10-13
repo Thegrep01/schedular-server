@@ -9,8 +9,6 @@ export class User {
     public login!: string;
     @Field({ nullable: true })
     public accessToken?: string;
-    @Field(_type => Schedular, { nullable: true })
-    public schedular?: Schedular;
 }
 
 @ObjectType()

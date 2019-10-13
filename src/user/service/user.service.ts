@@ -35,4 +35,8 @@ export class UserService {
     public async getUser(query: Partial<IUser>, projection: any = {}): Promise<IUser> {
         return await this._userModel.findOne(query, projection);
     }
+    // tslint:disable-next-line: no-any
+    public async getUsers(query: any = {}, projection: any = {}): Promise<IUser[]> {
+        return await this._userModel.find(query, projection);
+    }
 }

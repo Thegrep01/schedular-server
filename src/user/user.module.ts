@@ -12,5 +12,6 @@ const secret: string = config.get('secret');
 @Module({
     imports: [DatabaseModule, ConfigModule],
     providers: [...userProviders, ...resolvers, UserService, JwtStrategy],
+    exports: [UserService, ...userProviders, ConfigModule],
 })
 export class UserModule {}

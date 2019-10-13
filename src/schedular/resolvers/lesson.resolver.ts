@@ -1,4 +1,4 @@
-import { Lesson, LessonMutations, LessonInput } from '../dto/lesson.dto';
+import { Lesson, LessonInput, LessonMutations } from '../dto/lesson.dto';
 import { Args, Mutation, ResolveProperty, Resolver } from '@nestjs/graphql';
 import { UseGuards } from '@nestjs/common';
 import { GqlAuthGuard } from 'src/common/gqlAuth';

@@ -41,12 +41,14 @@ input LoginInput {
 }
 
 type Mutation {
-  lessons: LessonMutations
   auth: AuthMutations
+  lessons: LessonMutations
+  schedular: SchedularMutations
 }
 
 type Query {
   user: User!
+  schedular(userId: String!): Schedular
 }
 
 type Schedular {
@@ -60,9 +62,12 @@ type Schedular {
   sat: [Lesson!]!
 }
 
+type SchedularMutations {
+  createEmptySchedular: Schedular!
+}
+
 type User {
   _id: ID!
   login: String!
   accessToken: String
-  schedular: Schedular
 }

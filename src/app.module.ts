@@ -10,7 +10,7 @@ import { UserModule } from './user/user.module';
         SchedularModule,
         GraphQLModule.forRoot({
             autoSchemaFile: 'schema.gql',
-            context: ({ req }) => ({ req }),
+            context: ({ req }) => ({ req, dataloaders: new WeakMap() }),
         }),
     ],
 })

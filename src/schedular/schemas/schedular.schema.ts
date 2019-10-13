@@ -1,29 +1,31 @@
-import { ILesson } from './lesson.schema';
 import * as mongoose from 'mongoose';
 
 export const schedularSchema: mongoose.Schema = new mongoose.Schema({
     mon: {
-        type: [mongoose.Types.ObjectId],
+        type: [String],
     },
     tue: {
-        type: [mongoose.Types.ObjectId],
+        type: [String],
     },
     wen: {
-        type: [mongoose.Types.ObjectId],
+        type: [String],
     },
     thu: {
-        type: [mongoose.Types.ObjectId],
+        type: [String],
     },
     fri: {
-        type: [mongoose.Types.ObjectId],
+        type: [String],
     },
     sat: {
-        type: [mongoose.Types.ObjectId],
+        type: [String],
+    },
+    users: {
+        type: [String],
     },
 });
 
 export interface ISchedular extends mongoose.Document {
-    _id: mongoose.Types.ObjectId;
+    _id: String;
     // tslint:disable-next-line:no-any
     [x: string]: any;
 }
